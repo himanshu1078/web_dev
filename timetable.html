@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Class Time Table</title>
+<style>
+  /* Page layout */
+  body {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 13px;
+    color: #111;
+    margin: 18px;
+    background: #fff;
+  }
+
+  .header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 6px;
+  }
+
+  .logo img {
+    width: 70px;
+    height: auto;
+  }
+
+  .title {
+    text-align: center;
+    flex: 1;
+  }
+
+  .title h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .title h2 {
+    margin: 6px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .meta {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  .meta .left {
+    float: left;
+    line-height: 1.6;
+    font-family: monospace;
+    font-size: 12px;
+  }
+
+  /* Clearfix */
+  .meta::after { content: ""; display: table; clear: both; }
+
+  /* Timetable styling */
+  .timetable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    table-layout: fixed;
+    font-size: 12px;
+  }
+
+  .timetable th, .timetable td {
+    border: 1px solid #222;
+    padding: 6px 4px;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .timetable th {
+    background: #fafafa;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  /* Narrow time column */
+  .col-time {
+    width: 9%;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+
+  /* Equal width for other time slots (remaining columns share) */
+  .timetable td.slot { font-size: 11px; padding: 8px 6px; }
+
+  /* vertical LUNCH cell */
+  .lunch-cell {
+    width: 5%;
+    padding: 0;
+    position: relative;
+  }
+  .lunch-cell .vertical {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(90deg);
+    transform-origin: center;
+    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: 6px;
+  }
+
+  /* Bottom legend */
+  .legend {
+    margin-top: 18px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .legend .cols {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .legend pre {
+    margin: 6px 0 0;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+  }
+
+  /* Make table readable on small screens */
+  @media (max-width: 900px) {
+    body { margin: 8px; font-size: 12px; }
+    .logo img { width: 50px; }
+    .col-time { width: 12%; font-size: 11px; }
+    .timetable th, .timetable td { padding: 6px 4px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">
+      <!-- replace src with your logo path -->
+      <img src="logo.png" alt="ABES logo">
+    </div>
+
+    <div class="title">
+      <h1>ABES Engineering College</h1>
+      <h2>Class Time Table</h2>
+      <div style="margin-top:8px; font-weight:600;">Department: Computer Science and Engineering</div>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div class="left">
+      Course:&nbsp;&nbsp; B-Tech<br>
+      Semester/Section:&nbsp;&nbsp; III/cse18<br>
+      Class room No:&nbsp;&nbsp; KC-402
+    </div>
+  </div>
+
+  <!-- Timetable -->
+  <table class="timetable" role="table" aria-label="class timetable">
+    <thead>
+      <tr>
+        <th class="col-time">Time/Day</th>
+        <th>8:50-9:40</th>
+        <th>9:40-10:30</th>
+        <th>10:40-11:30</th>
+        <th>11:30-12:20</th>
+        <th>12:20-1:10</th>
+        <th class="lunch-cell" rowspan="6"><div class="vertical">L U N C H</div></th>
+        <th>1:10-2:00</th>
+        <th>2:00-2:50</th>
+        <th>2:50-3:40</th>
+        <th>3:40-4:50</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- MONDAY -->
+      <tr>
+        <td class="col-time">MONDAY</td>
+        <td class="slot">BCS301<br><small>(APS)</small></td>
+        <td class="slot">BAS303<br><small>(SHV)</small></td>
+        <td class="slot" colspan="2">DOMAIN TRAINING</td>
+        <td class="slot">BAS301<br><small>(AT)</small></td>
+        <td class="slot">BCS351<br><small>(APS,AKS)</small></td>
+        <td class="slot">DSA TRAINING<br><small>(APS,AKS)</small></td>
+        <td class="slot">MM<br><small>(YR,AA)</small></td>
+      </tr>
+
+      <!-- TUESDAY -->
+      <tr>
+        <td class="col-time">TUESDAY</td>
+        <td class="slot">BCS302<br><small>(AG)</small></td>
+        <td class="slot">BCS301<br><small>(APS)</small></td>
+        <td class="slot">BCC302<br><small>(YR)</small></td>
+        <td class="slot">BCS303<br><small>(AAR)</small></td>
+        <td class="slot">BAS301<br><small>(AT)</small></td>
+        <td class="slot">SS<br><small>(AT)</small></td>
+        <td class="slot">BAS303<br><small>(SHV)</small></td>
+        <td class="slot">BCS353<br><small>(SYA,MS Komal)</small></td>
+      </tr>
+
+      <!-- WEDNESDAY -->
+      <tr>
+        <td class="col-time">WEDNESDAY</td>
+        <td class="slot">BCC302<br><small>(YR)</small></td>
+        <td class="slot" colspan="2">BCC302 / BCS302<br><small>(YR / AG)</small></td>
+        <td class="slot">BCS303<br><small>(AAR)</small></td>
+        <td class="slot">BAS301<br><small>(AT)</small></td>
+        <td class="slot">BCS352<br><small>(AG,KD)</small></td>
+        <td class="slot">FSD<br><small>(SYA,SAG)</small></td>
+        <td class="slot">BCS301<br><small>(APS)</small></td>
+      </tr>
+
+      <!-- THURSDAY -->
+      <tr>
+        <td class="col-time">THURSDAY</td>
+        <td class="slot">BAS303<br><small>(SHV)</small></td>
+        <td class="slot">BCS303<br><small>(AAR)</small></td>
+        <td class="slot" colspan="2">DOMAIN TRAINING</td>
+        <td class="slot">BCS301<br><small>(APS)</small></td>
+        <td class="slot">BCC302<br><small>(YR)</small></td>
+        <td class="slot">BCS303<br><small>(AAR)</small></td>
+        <td class="slot">BAS303<br><small>(SHV)</small></td>
+      </tr>
+
+      <!-- FRIDAY -->
+      <tr>
+        <td class="col-time">FRIDAY</td>
+        <td class="slot">DSA TRAINING<br><small>(APS,AKS)</small></td>
+        <td class="slot">BCS302<br><small>(AG)</small></td>
+        <td class="slot">BCS303<br><small>(AAR)</small></td>
+        <td class="slot">SS<br><small>(AT)</small></td>
+        <td class="slot">BCC302<br><small>(YR)</small></td>
+        <td class="slot">FSD<br><small>(SYA,SAG)</small></td>
+        <td class="slot">BAS303<br><small>(SHV)</small></td>
+        <td class="slot">BAS303<br><small>(SHV)</small></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Legend / subjects and instructors -->
+  <div class="legend">
+    <div class="cols">
+      <div>
+        <strong>Course Codes</strong>
+        <pre>
+BAS303   MATHS - IV
+BAS301   Technical Communication
+BCS301   Data Structure
+BCS302   Computer Organization & Architecture
+BCS303   Discrete Structure & Theory of Logic
+BCC302   Python Programming
+        </pre>
+      </div>
+
+      <div>
+        <strong>Instructors / Labs</strong>
+        <pre>
+DR. Shimli Verma (SHV)
+DR. Abrity Thakur (AT)
+Ms. Apoorva Singh (APS)
+Ms. Anurag Gupta (AG)
+Ms. Aditi Arora (AAR)
+Ms. Yashi Rastogi (YR)
+        </pre>
+      </div>
+
+      <div>
+        <strong>Other</strong>
+        <pre>
+BCS351  Data Structure Lab
+BCS352  Computer Organization & Arch
+BCS353  Web Designing Workshop
+Program Leader: Mr. Arvind Kumar (AK)
+Class Mentor-1: Ms. Yashi Rastogi (YR)
+Class Mentor-2: Ms. Ayushi Agarwal (AA)
+        </pre>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
