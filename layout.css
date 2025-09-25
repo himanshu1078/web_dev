@@ -1,17 +1,14 @@
 div{
-    background-color: rgba(215, 216, 139, 0.966);
-    background-image: url" lay.jpg") ;
-   
+    background-image: url("lay.jpg");
+    width: 1200px;
+    background-color: rgb(162, 242, 242);
     width: 700px;
-    border: 30px solid rgb(16, 65, 105);
+    border: 30px solid rgb(20, 150, 220);
     padding: 60px;
     margin: 25px;
 }
 .content {
-    background: rgb(177, 89, 89)
-    font-size: 50px;
+    background: rgb(237, 180, 180);
+    font-size: 30px;
     width: 300px;
-
 }
-
-
